@@ -10,7 +10,7 @@ pipeline {
         stage('CLONE SCM') {
             steps {
                 echo 'cloning code from Github'
-				git branch: 'main', url: 'https://github.com/rsandeep47/WebApp1-MC.git'
+				git branch: 'main', url: 'https://github.com/rsandeep47/App2.git'
             }
         }
 			
@@ -32,7 +32,7 @@ pipeline {
 		stage('Deploy') {
             steps {
                 echo 'Deploy to tomcat ap/n server '
-				deploy adapters: [tomcat9(credentialsId: 'Tomcatcred', path: '', url: 'http://3.90.84.179:8081/')], contextPath: 'javaapp2', war: '**/*.war'
+				deploy adapters: [tomcat9(credentialsId: 'Tomcatcred', path: '', url: 'http://52.91.153.52:8081/')], contextPath: 'app2', war: '**/*.war'
             }
         }
     }
